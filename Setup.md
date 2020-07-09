@@ -1,11 +1,26 @@
 
 # How to setup nodejs + nginx
 
+This document will help you setup `nginx container` + `nodejs container` for local docker development:
+
+```bash
+rickyi@stcvl-305:~/nodejs_dev/nodock$ sudo docker-compose ps
+     Name                  Command             State                    Ports
+-----------------------------------------------------------------------------------------------
+nodock_nginx_1   /bin/sh -c nginx              Up      0.0.0.0:443->443/tcp, 0.0.0.0:80->80/tcp
+nodock_node_1    run-nodock nodemon index.js   Up
+rickyi@stcvl-305:~/nodejs_dev/nodock$
+```
+
+Below are the steps:
+
+
+
 1. Prepare your nodejs app directory
 
     Says it is `~/apps/my_awsome_app/`
 
-    Regarding the content of ,pls refer to https://github.com/yishilin/nodock/tree/master/_examples/nginx,
+    Regarding the content of app, pls refer to https://github.com/yishilin/nodock/tree/master/_examples/nginx,
     you could copy from: <br>
     `cp nodock/_examples/nginx/* ./my_awesome_app/`
 
@@ -71,6 +86,7 @@
     docker exec -it CONTAINER_ID ip addr
     ```
 
-    kill: just kill container process without cleanup, no mem used anymore
-    stop/start: kill container process and will cleanup, no mem
-    pause/unpause: not kill the container process but suspend the process, still consume mem
+Different with docker container operations:
+    * kill: just kill container process without cleanup, no mem used anymore
+    * stop/start: kill container process and will cleanup, no mem
+    * pause/unpause: not kill the container process but suspend the process, still consume mem

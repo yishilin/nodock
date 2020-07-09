@@ -23,6 +23,8 @@ RUN mkdir -p /home/www-app &&\
 # Install the specified NODE_VERSION or grab latest
 RUN n "$NODE_VERSION"
 
+RUN npm install -g nodemon
+
 # Install Yarn
 
 RUN if [ ${YARN} = true ]; then \
